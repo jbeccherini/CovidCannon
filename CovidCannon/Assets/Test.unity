@@ -241,8 +241,8 @@ MonoBehaviour:
   mouseXMin: -5
   rotateMax: 135
   rotateMin: -135
-  rotateAngle: 0.1
-  degreeStep: 12.5
+  rotateAngle: 0.01
+  degreeStep: 5
 --- !u!212 &1925506585
 SpriteRenderer:
   m_ObjectHideFlags: 0

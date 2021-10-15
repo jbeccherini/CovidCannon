@@ -20,6 +20,12 @@ public class CannonController : MonoBehaviour
     public float degreeStep = 5f;
 
     private float step;
+    public float moveStep = .01f;
+
+    public bool bombLoaded = true;
+
+    public Transform target;
+    public GameObject bomb;
     
 
     // Start is called before the first frame update
@@ -44,6 +50,18 @@ public class CannonController : MonoBehaviour
         {
             transform.position = new Vector3(mouseX, Mathf.Pow(mouseX, 2) * slope, transform.position.z);
         }
+
+        if (positioning) 
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow) && TargetController.range < 12.5f)
+            {
+                TargetController.range += 2.5f;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && TargetController.range > 5f)
+            {
+                TargetController.range -= 2.5f;
+            }
+        }
         
         if (Input.GetMouseButton(0) && positioning)
         {
@@ -61,7 +79,6 @@ public class CannonController : MonoBehaviour
             step *= -1;
         }
 
-        Debug.Log(transform.rotation.z);
 
         if (Input.GetMouseButtonUp(0) && aiming)
         {
@@ -69,6 +86,17 @@ public class CannonController : MonoBehaviour
             shooting = true;
         }
 
+        if (shooting && Input.GetKeyDown(KeyCode.Space) && bombLoaded) 
+        {
+            
+            Instantiate(bomb, this.transform);
+        }
 
+
+    }
+
+    void shootBomb() 
+    {
+    
     }
 }
