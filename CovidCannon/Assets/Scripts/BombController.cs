@@ -19,8 +19,17 @@ public class BombController : MonoBehaviour
 
     public Vector3 initialScaling = new Vector3(0.5f, 0.5f, 1);
 
+    private GameObject[] tables;
+    private GameObject[] unmasked;
+
+    public float bombDistance = 5.0f;
+
+    public static bool bombActive = false;
+
     void Start()
     {
+        TargetController.setAiming(false);
+
         transform.localScale = initialScaling;
 
         startMarker = GameObject.Find("Cannon").transform;
@@ -32,14 +41,13 @@ public class BombController : MonoBehaviour
         // Calculate the journey length.
         journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
 
+        bombActive = true;
         
     }
 
     // Move to the target end position.
     void Update()
     {
-        Debug.Log(startMarker.position.ToString() + " " + endMarker.position.ToString());
-
         // Distance moved equals elapsed time times speed..
         float distCovered = (Time.time - startTime) * speed;
 
@@ -55,7 +63,35 @@ public class BombController : MonoBehaviour
 
         if (transform.position == endMarker.position) 
         {
+            tables = GameObject.FindGameObjectsWithTag("Table");
+            unmasked = GameObject.FindGameObjectsWithTag("Unmasked");
+
+            if (this.gameObject.tag == "DisinfectBomb")
+            {
+                for (int i = 0; i < tables.Length; i++) 
+                {
+                    //if (Vector3.Distance(this.transform.position, tables[i].transform.position) < bombDistance)
+                    if (Vector2.Distance(this.transform.position, tables[i].transform.position) < bombDistance)
+                    {
+                        GameManager.changeScore(1);
+                    }
+                    //Debug.Log(Vector2.Distance(this.transform.position, tables[i].transform.position));
+                }
+            }
+            else if (this.gameObject.tag == "MaskBomb")
+            {
+                for (int i = 0; i < unmasked.Length; i++)
+                {
+                    if (Vector2.Distance(this.transform.position, unmasked[i].transform.position) < bombDistance)
+                    {
+                        GameManager.changeScore(1);
+                    }
+                }
+            }
+
             Destroy(this.gameObject);
+            TargetController.setAiming(true);
+            bombActive = false;
         }
     }
 }

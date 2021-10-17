@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Table
+  - Unmasked
+  - DisinfectBomb
+  - MaskBomb
+  - BombPile
+  - IsolationBomb
+  - SoundBomb
   layers:
   - Default
   - TransparentFX
