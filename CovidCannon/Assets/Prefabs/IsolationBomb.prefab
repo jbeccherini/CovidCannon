@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8732627547998342553}
   - component: {fileID: 2133442571799759435}
   - component: {fileID: 3332725900247863792}
+  - component: {fileID: -667200981764471549}
+  - component: {fileID: -509741671399437307}
   m_Layer: 0
   m_Name: IsolationBomb
   m_TagString: IsolationBomb
@@ -101,3 +103,40 @@ MonoBehaviour:
   speed: 15
   initialScaling: {x: 0.5, y: 0.5, z: 1}
   bombDistance: 5
+--- !u!58 &-667200981764471549
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864983504277884577}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
+--- !u!50 &-509741671399437307
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864983504277884577}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

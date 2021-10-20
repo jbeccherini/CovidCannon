@@ -45,7 +45,5 @@ public class PlayerController : MonoBehaviour
 
             Destroy(collision.collider.gameObject);
         }
-        
-        
     }
 }

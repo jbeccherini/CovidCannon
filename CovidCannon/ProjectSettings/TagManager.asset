@@ -48,3 +48,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: TablesFront
+    uniqueID: 2834220347
+    locked: 0
+  - name: TablesBack
+    uniqueID: 2376237269
+    locked: 0
+  - name: People
+    uniqueID: 351367867
+    locked: 0

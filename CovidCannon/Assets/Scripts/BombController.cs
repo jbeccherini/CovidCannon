@@ -50,7 +50,6 @@ public class BombController : MonoBehaviour
     {
         // Distance moved equals elapsed time times speed..
         float distCovered = (Time.time - startTime) * speed;
-
         // Fraction of journey completed equals current distance divided by total distance.
         float fractionOfJourney = distCovered / journeyLength;
 
@@ -73,7 +72,7 @@ public class BombController : MonoBehaviour
                     //if (Vector3.Distance(this.transform.position, tables[i].transform.position) < bombDistance)
                     if (Vector2.Distance(this.transform.position, tables[i].transform.position) < bombDistance)
                     {
-                        GameManager.changeScore(1);
+                        //GameManager.changeScore(1);
                     }
                     //Debug.Log(Vector2.Distance(this.transform.position, tables[i].transform.position));
                 }
@@ -84,7 +83,7 @@ public class BombController : MonoBehaviour
                 {
                     if (Vector2.Distance(this.transform.position, unmasked[i].transform.position) < bombDistance)
                     {
-                        GameManager.changeScore(1);
+                        //GameManager.changeScore(1);
                     }
                 }
             }
